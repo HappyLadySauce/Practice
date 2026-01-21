@@ -1,0 +1,46 @@
+syntax="proto3";
+
+package service;
+
+option go_package = "rpc/service;service";
+
+import "model.proto";  // 引入student.proto文件, 可以使用student.model包中的消息类型
+
+import "google/protobuf/timestamp.proto";  // 引入google/protobuf/timestamp.proto文件, 可以使用google.protobuf.Timestamp消息类型
+
+message QueryStudentRequest {
+    int64 id = 1;
+    string name = 2;
+    int32 pageSize = 3;
+    int32 pageNum = 4;
+    google.protobuf.Timestamp createTime = 5;
+}
+
+message QueryStudentResponse {
+    repeated .model.student students = 1;
+}
+
+message StudentIds {
+    repeated int64 ids = 1;
+}
+
+message StudentId {
+    int64 id = 1;
+}
+
+
+service student {
+    // 查询单个学生
+    rpc QueryStudent(QueryStudentRequest) returns (QueryStudentResponse);
+
+    // 批量查询学生
+    rpc QueryStudents(StudentIds) returns (QueryStudentResponse);
+    // 流式批量查询学生
+    rpc QueryStudentsStream(StudentIds) returns (stream model.student);
+    // 流式查询学生
+    rpc QueryStudentsStream2(stream StudentId) returns (QueryStudentResponse);
+    // 流式批量查询学生
+    rpc QueryStudentsStream3(stream StudentId) returns (stream model.student);
+}
+
+// protoc --go_out=.. --go_opt=Mmodel.proto=happyladysauce/rpc/model --go-grpc_out=.. --proto_path=. service.proto

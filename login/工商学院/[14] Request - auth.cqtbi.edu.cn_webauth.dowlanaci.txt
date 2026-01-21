@@ -1,0 +1,23 @@
+POST /webauth.do?wlanacip=10.34.5.3&wlanacname=ZAX-BRAS-HC&wlanuserip=10.36.32.121&mac=30:0d:9e:73:e8:b0&vlan=0&url=http://www.msftconnecttest.com/redirect HTTP/1.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cache-Control: max-age=0
+Connection: keep-alive
+Content-Length: 507
+Content-Type: application/x-www-form-urlencoded
+Cookie: remeberMeCookie=44b6e847d4aa5a5e1a8dab36874691da5f5823d8e5ac72928162c9927c44774cd5485688ad9b5e0d3ca8ba3a34b3c36d2573bb7f99fcb4b382e3e9514e198ba2; portal_token=44b6e847d4aa5a5e1a8dab36874691dad3da606152a31349a70eaca1cf894b4d36a4b64dfc3566f2; JSESSIONID-BOSS-2=551E43792EF657626B9976D1E7F8478F
+Host: auth.cqtbi.edu.cn
+Origin: https://auth.cqtbi.edu.cn
+Referer: https://auth.cqtbi.edu.cn/webauth.do?wlanacip=10.34.5.3&wlanacname=ZAX-BRAS-HC&wlanuserip=10.36.32.121&mac=30:0d:9e:73:e8:b0&vlan=0&url=http://www.msftconnecttest.com/redirect
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0
+sec-ch-ua: "Chromium";v="142", "Microsoft Edge";v="142", "Not_A Brand";v="99"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+
+scheme=https&serverIp=auth.cqtbi.edu.cn%3A443&hostIp=http%3A%2F%2F127.0.0.1%3A8445%2F&loginType=&auth_type=0&isBindMac1=0&pageid=282&templatetype=1&listbindmac=0&recordmac=1&isRemind=1&loginTimes=&groupId=&distoken=&echostr=&url=http%3A%2F%2Fwww.msftconnecttest.com%2Fredirect&isautoauth=&mobile=&notice_pic_loop2=%2Fportal%2Fuploads%2Fpc%2Fdemo2%2Fimages%2Fbj.png&notice_pic_loop1=%2Fportal%2Fuploads%2Fpc%2Fdemo2%2Fimages%2Flogo.png&userId=X250223201150&passwd=%40Ssddffqxc547&remInfo=on&isBindMac=bindmac

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package math;
+
+option go_package = "math";
+
+message AddRequest {
+    int32 left = 1;
+    int32 right = 2;
+}
+
+message AddResponse {
+    int32 result = 1;
+}
+
+message SubRequest {
+    int32 left = 1;
+    int32 right = 2;
+}
+
+message SubResponse {
+    int32 result = 1;
+}
+
+service MathService {
+    rpc Add(AddRequest) returns (AddResponse);
+    rpc Sub(SubRequest) returns (SubResponse);
+}
+
+// kitex -module my_kitex math.proto
+
+

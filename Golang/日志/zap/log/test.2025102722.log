@@ -1,0 +1,12 @@
+2025-10-27 22:17:39.952	INFO	this is info log.	{"test": {"ssddffaa": "666"}}
+2025-10-27 22:17:39.959	INFO	this is flag test.	{"test": {"ssddffaa": "666", "age": 18}}
+2025-10-27 22:17:39.959	ERROR	this is flag test.	{"test": {"ssddffaa": "666", "testNamesapce": {"age": 18}}}
+2025-10-27 22:17:39.959	INFO	this is value: 10	{"test": {"ssddffaa": "666"}}
+2025-10-27 22:18:07.269	INFO	this is info log.	{"test": {"ssddffaa": "666"}}
+2025-10-27 22:18:07.275	INFO	this is flag test.	{"test": {"ssddffaa": "666", "age": 18}}
+2025-10-27 22:18:07.275	ERROR	this is flag test.	{"test": {"ssddffaa": "666", "testNamesapce": {"age": 18}}}
+2025-10-27 22:18:07.275	INFO	this is value: 10	{"test": {"ssddffaa": "666"}}
+2025-10-27 22:18:40.252	INFO	this is info log.	{"test": {"ssddffaa": "666"}}
+2025-10-27 22:18:40.258	INFO	this is flag test.	{"test": {"ssddffaa": "666", "age": 18}}
+2025-10-27 22:18:40.258	ERROR	this is flag test.	{"test": {"ssddffaa": "666", "testNamesapce": {"age": 18}}}
+2025-10-27 22:18:40.258	INFO	this is value: 10	{"test": {"ssddffaa": "666"}}

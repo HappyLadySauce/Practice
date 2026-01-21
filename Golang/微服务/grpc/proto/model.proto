@@ -1,0 +1,18 @@
+syntax="proto3";    // 采用protobuff V3 语法
+
+package model;  // 包名可以包含. 但不能包含/ , 其他proto可以引用该包, 对生成的代码没有影响
+
+option go_package = "rpc/model;model";  // 生成的go代码的包名, 可以不指定, 则默认使用proto文件名作为包名 分号前是生成的go代码的路径, 分号后是包名
+
+message student {   // 转成 go 代码会变为驼峰命名 Student
+    // 变量后面的注释会被转成 go 代码的注释, 数字用来指定字段的编号用于在序列化和反序列化时标识字段, 编号不能重复, 但可以省略, 则默认从1开始递增
+    string name = 2;    // 字符串字段, 对应go中的string
+    int64 id = 1;       // 64位整数字段, 对应go中的int64
+    repeated string locations = 4;    // 重复字段, 可以包含0个或多个值(对应go中的slice)
+    map<string, float> scores = 3;  // 映射字段, 可以包含0个或多个键值对(对应go中的map)
+    bool gender = 5;        // 布尔字段, 对应go中的bool
+    int32 age = 6;          // 整数字段, 对应go中的int32
+    float score = 7;        // 单精度浮点数字段, 对应go中的float32, 不支持float64
+}
+
+// protoc --go_out=.. --go-grpc_out=.. --proto_path=. model.proto

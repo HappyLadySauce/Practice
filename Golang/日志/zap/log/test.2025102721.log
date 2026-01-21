@@ -1,0 +1,16 @@
+2025-10-27 21:47:26.529	INFO	zap/zap_test.go:12	this is info log.
+2025-10-27 21:47:26.535	INFO	zap/zap_test.go:15	this is flag test.	{"age": 18}
+2025-10-27 21:47:26.535	ERROR	zap/zap_test.go:17	this is flag test.	{"testNamesapce": {"age": 18}}
+happyladysauce_test.TestLogger
+	D:/Code/Golang/日志/zap/zap_test.go:17
+testing.tRunner
+	C:/Users/13452/sdk/go1.25.0/src/testing/testing.go:1934
+2025-10-27 21:47:26.535	INFO	zap/zap_test.go:22	this is value: 10
+2025-10-27 21:50:14.462	INFO	zap/zap_test.go:12	this is info log.	{"test": {"ssddffaa": "666"}}
+2025-10-27 21:50:14.468	INFO	zap/zap_test.go:15	this is flag test.	{"test": {"ssddffaa": "666", "age": 18}}
+2025-10-27 21:50:14.468	ERROR	zap/zap_test.go:17	this is flag test.	{"test": {"ssddffaa": "666", "testNamesapce": {"age": 18}}}
+happyladysauce_test.TestLogger
+	D:/Code/Golang/日志/zap/zap_test.go:17
+testing.tRunner
+	C:/Users/13452/sdk/go1.25.0/src/testing/testing.go:1934
+2025-10-27 21:50:14.468	INFO	zap/zap_test.go:22	this is value: 10	{"test": {"ssddffaa": "666"}}

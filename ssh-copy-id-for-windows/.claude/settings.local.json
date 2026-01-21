@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell:*)",
+      "Bash(copy:*)",
+      "Bash(chcp:*)",
+      "Bash(del \"D:\\Code\\ssh-copy-id-for-windows\\ssh-copy-id.ps1\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

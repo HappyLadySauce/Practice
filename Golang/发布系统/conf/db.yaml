@@ -1,0 +1,10 @@
+mysql:
+  host: 100.100.100.5
+  port: 3306
+  user: post
+  password: post
+  dbname: post
+  log: post.db.log  # 日志文件路径
+log:
+  path: post.log  # 日志文件路径
+  level: debug

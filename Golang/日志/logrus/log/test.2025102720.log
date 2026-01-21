@@ -1,0 +1,10 @@
+time="2025-10-27 20:42:09.950" level=info msg="this is test log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:11"
+time="2025-10-27 20:42:09.956" level=warning msg="this is warn log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:12"
+time="2025-10-27 20:42:32.133" level=warning msg="this is warn log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:12"
+time="2025-10-27 20:43:08.821" level=debug msg="this is debug log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:10"
+time="2025-10-27 20:43:08.826" level=info msg="this is test log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:11"
+time="2025-10-27 20:43:08.826" level=warning msg="this is warn log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:12"
+time="2025-10-27 20:44:10.775" level=info msg="this is test log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:11"
+time="2025-10-27 20:44:10.781" level=warning msg="this is warn log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:12"
+time="2025-10-27 20:45:18.784" level=info msg="this is test log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:11" app=666
+time="2025-10-27 20:45:18.790" level=warning msg="this is warn log." func=happyladysauce_test.TestLogger file="D:/Code/Golang/日志/logrus/logrus_test.go:12" app=666
