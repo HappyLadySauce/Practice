@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/Environment/MSYS2/mingw64/include",
+                "D:/Environment/MSYS2/mingw64/include/c++/15.2.0",
+                "D:/Environment/MSYS2/mingw64/include/c++/15.2.0/x86_64-w64-mingw32",
+                "D:/Environment/MSYS2/mingw64/x86_64-w64-mingw32/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__GNUC__",
+                "__MINGW32__",
+                "__MINGW64__"
+            ],
+            "windowsSdkVersion": "10.0.22621.0",
+            "compilerPath": "D:/Environment/MSYS2/mingw64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerArgs": [
+                "-Wall",
+                "-Wextra"
+            ]
+        }
+    ],
+    "version": 4
+}

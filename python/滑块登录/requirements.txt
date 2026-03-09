@@ -1,0 +1,7 @@
+selenium>=4.0
+opencv-python>=4.5
+Pillow>=9.0
+openpyxl>=3.0
+ddddocr>=1.4.0
+
+

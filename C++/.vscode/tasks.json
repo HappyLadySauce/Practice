@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C++: 编译当前文件",
+            "type": "shell",
+            "command": "D:/Environment/MSYS2/mingw64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-std=c++17",
+                "-Wall",
+                "-Wextra"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "C++: 编译并运行当前文件",
+            "type": "shell",
+            "dependsOn": "C++: 编译当前文件",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "C++: 清理编译文件",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Remove-Item -Path '${fileDirname}/*.exe' -ErrorAction SilentlyContinue"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    // C++ 文件设置
+    "files.associations": {
+        "*.cpp": "cpp",
+        "*.hpp": "cpp",
+        "*.h": "c",
+        "*.c": "c"
+    },
+    // 编辑器设置
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    // C/C++ 扩展设置
+    "C_Cpp.default.compilerPath": "D:/Environment/MSYS2/mingw64/bin/g++.exe",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "D:/Environment/MSYS2/mingw64/include/**"
+    ],
+    // 终端设置 - 使用 MSYS2 环境
+    "terminal.integrated.env.windows": {
+        "PATH": "D:/Environment/MSYS2/mingw64/bin;${env:PATH}"
+    },
+    // 文件排除
+    "files.exclude": {
+        "**/*.exe": true,
+        "**/*.o": true,
+        "**/*.obj": true
+    },
+    // 搜索排除
+    "search.exclude": {
+        "**/*.exe": true,
+        "**/*.o": true,
+        "**/*.obj": true
+    }
+}
