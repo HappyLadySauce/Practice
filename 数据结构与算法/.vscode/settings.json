@@ -1,0 +1,13 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "${env:PATH};${env:USERPROFILE}\\go\\bin;${env:GOPATH}\\bin"
+    },
+    "go.toolsEnvVars": {
+        "PATH": "${env:PATH};${env:USERPROFILE}\\go\\bin;${env:GOPATH}\\bin"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true
+    }
+}
+

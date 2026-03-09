@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "swag: Generate Swagger Docs",
+            "type": "shell",
+            "command": "swag",
+            "args": [
+                "init",
+                "-g",
+                "cmd/app/api.go",
+                "-o",
+                "api/swagger/docs"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "${env:PATH};${env:USERPROFILE}\\go\\bin;${env:GOPATH}\\bin"
+                }
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "swag: Install swag tool",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "install",
+                "github.com/swaggo/swag/cmd/swag@latest"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ]
+}
+
