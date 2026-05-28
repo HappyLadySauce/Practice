@@ -11,6 +11,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer MQ.Close()
 
 	// Declare a queue for the user and bind it to the exchange.
 	if err := MQ.DeclareUserQueue(userID); err != nil {

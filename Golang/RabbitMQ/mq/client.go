@@ -8,14 +8,8 @@ import (
 
 // first define some constants for queue and exchange names
 func (m *MQ) DeclareUserQueue(userID string) (error) {
-	// Open a channel on the existing connection.
-	ch, err := m.Channel()
-	if err != nil {
-		return fmt.Errorf("failed to get channel: %v", err)
-	}
-
 	// Declare a durable queue for the user with a message length limit of 1000 bytes.
-	q, err := ch.QueueDeclare(
+	q, err := m.ch.QueueDeclare(
 		UserQueuePrefix + userID,
 		true,
 		false,
@@ -26,12 +20,12 @@ func (m *MQ) DeclareUserQueue(userID string) (error) {
 		},
 	)
 	if err != nil {
-		ch.Close()
+		m.ch.Close()
 		return fmt.Errorf("failed to declare queue: %v", err)
 	}
 	
 	// Bind the queue to the "chat.direct" exchange with the routing key equal to the user ID.
-	err = ch.QueueBind(
+	err = m.ch.QueueBind(
 		q.Name,
 		userID,
 		ChatExchangeName,
@@ -39,7 +33,7 @@ func (m *MQ) DeclareUserQueue(userID string) (error) {
 		nil,
 	)
 	if err != nil {
-		ch.Close()
+		m.ch.Close()
 		return fmt.Errorf("failed to bind queue: %v", err)
 	}
 

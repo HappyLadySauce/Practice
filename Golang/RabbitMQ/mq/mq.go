@@ -14,6 +14,7 @@ const (
 
 type MQ struct {
 	conn *amqp.Connection
+	ch   *amqp.Channel
 }
 
 func Init(url string) (*MQ, error) {
@@ -45,19 +46,14 @@ func Init(url string) (*MQ, error) {
 		return nil, fmt.Errorf("failed to declare exchange: %v", err)
 	}
 
-	return &MQ{conn: conn}, nil
+	return &MQ{conn: conn, ch: ch}, nil
 }
 
-func (m *MQ) Channel() (*amqp.Channel, error) {
-	// Check if the connection is still open before trying to create a channel.
-	if m.conn == nil || m.conn.IsClosed() {
-		return nil, fmt.Errorf("connection is closed")
+func (m *MQ) Close() {
+	if m.ch != nil {
+		m.ch.Close()
 	}
-
-	// Open a channel on the existing connection.
-	ch, err := m.conn.Channel()
-	if err != nil {
-		return nil, fmt.Errorf("failed to open a channel: %v", err)
+	if m.conn != nil {
+		m.conn.Close()
 	}
-	return ch, nil
 }
