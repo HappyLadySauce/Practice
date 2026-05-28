@@ -8,22 +8,31 @@ import (
 var conn *amqp.Connection
 
 func Init(url string) {
-	// create TCP connction for rabbitmq
+	// Open a connection to the RabbitMQ server.
 	conn, err := amqp.Dial(url)
 	if err != nil {
-		log.Fatal("amqp connction error:", err)
+		log.Fatal("failed to connect to RabbitMQ:", err)
 	}
 
-	// create channel to declare exchange
+	// Open a channel on the connection.
 	ch, err := conn.Channel()
 	if err != nil {
-		log.Fatal("amqp Channel error:", err)
+		conn.Close()
+		log.Fatal("failed to open a channel:", err)
 	}
 
-	// create "chat.direct" exchange
+	// Declare a durable direct exchange named "chat.direct".
 	if err := ch.ExchangeDeclare(
-		"chat.direct", "direct", true, false, false, false, nil,
+		"chat.direct", // name
+		"direct",      // type
+		true,          // durable
+		false,         // auto-deleted
+		false,         // internal
+		false,         // no-wait
+		nil,           // arguments
 	); err != nil {
-		log.Fatal("amqp exchangDeclare error:", err)
+		ch.Close()
+		conn.Close()
+		log.Fatal("failed to declare exchange:", err)
 	}
 }
