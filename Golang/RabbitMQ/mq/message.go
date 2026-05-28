@@ -53,6 +53,39 @@ func (m *MQ) SendMessage(msg *Message) (error) {
 	if confirmed := <-confirms; !confirmed.Ack {
 		return fmt.Errorf("failed to confirm message delivery")
 	}
-	
+
 	return nil
+}
+
+func (m *MQ) ConsumeMessages(userID string) (<-chan Message, error) {
+	// Consume messages from the user's queue.
+	msgs, err := m.ch.Consume(
+		UserQueuePrefix + userID,
+		"",
+		false,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("failed to consume messages: %v", err)
+	}
+
+	// Create a channel to send the messages to the caller.
+	messageChan := make(chan Message)
+
+	// Start a goroutine to read messages from the RabbitMQ channel and send them to the caller.
+	go func() {
+		for d := range msgs {
+			var msg Message
+			if err := json.Unmarshal(d.Body, &msg); err != nil {
+				fmt.Printf("failed to unmarshal message: %v", err)
+				continue
+			}
+			messageChan <- msg
+		}
+	}()
+
+	return messageChan, nil
 }
