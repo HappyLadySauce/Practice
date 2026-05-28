@@ -41,12 +41,9 @@ func main() {
 
 	// Keep the main function running to allow message processing.
 	for {
-		select {
-		default:
-			msg := recoverInfo(userID)
-			if err := MQ.SendMessage(&msg); err != nil {
-				log.Printf("error publishing message: %v\n", err)
-			}
+		msg := recoverInfo(userID)
+		if err := MQ.SendMessage(&msg); err != nil {
+			log.Printf("error publishing message: %v\n", err)
 		}
 	}
 }
