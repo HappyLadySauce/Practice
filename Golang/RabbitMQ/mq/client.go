@@ -24,10 +24,11 @@ func (m *MQ) DeclareUserQueue(userID string) (error) {
 		return fmt.Errorf("failed to declare queue: %v", err)
 	}
 	
-	// Bind the queue to the "chat.direct" exchange with the routing key equal to the user ID.
+	// Bind the queue to the topic exchange with an inbox routing key for this user.
+	// 将队列绑定到 topic 交换机，路由键为 chat.inbox.{userID}。
 	err = m.ch.QueueBind(
 		q.Name,
-		userID,
+		InboxRoutingKey(userID),
 		ChatExchangeName,
 		false,
 		nil,

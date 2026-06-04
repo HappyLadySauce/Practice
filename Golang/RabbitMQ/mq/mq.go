@@ -9,8 +9,18 @@ import (
 const (
 	UserQueuePrefix = "chat.user."
 
-	ChatExchangeName = "chat.direct"
+	ChatExchangeName = "chat.topic"
+
+	// InboxRoutingKeyPrefix is the topic routing-key prefix for user inbox delivery.
+	// Topic 模式下用户收件箱的路由键前缀。
+	InboxRoutingKeyPrefix = "chat.inbox."
 )
+
+// InboxRoutingKey builds the routing key for delivering a message to a user's inbox.
+// 构建投递到指定用户收件箱的路由键，例如 chat.inbox.123。
+func InboxRoutingKey(userID string) string {
+	return InboxRoutingKeyPrefix + userID
+}
 
 type MQ struct {
 	conn *amqp.Connection
@@ -31,10 +41,11 @@ func Init(url string) (*MQ, error) {
 		return nil, fmt.Errorf("failed to open a channel: %v", err)
 	}
 
-	// Declare a durable direct exchange named "chat.direct".
+	// Declare a durable topic exchange named "chat.topic".
+	// 声明持久化 topic 交换机。
 	if err := ch.ExchangeDeclare(
 		ChatExchangeName, // name
-		"direct",      // type
+		"topic",       // type
 		true,          // durable
 		false,         // auto-deleted
 		false,         // internal

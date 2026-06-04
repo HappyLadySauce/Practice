@@ -25,17 +25,16 @@ func (m *MQ) SendMessage(msg *Message) (error) {
 		return fmt.Errorf("failed to marshal message: %v", err)
 	}
 
-	// Publish the message to the "chat.direct" exchange with the routing key equal to the recipient user ID.
+	// Publish to the topic exchange; routing key targets the recipient inbox.
+	// 发布到 topic 交换机，路由键指向收件人收件箱。
 	if err := m.ch.Confirm(false); err != nil {
 		return fmt.Errorf("failed to put channel in confirm mode: %v", err)
 	}
-	// Publish the message to the exchange with the routing key equal to the recipient user ID.
 	confirms := m.ch.NotifyPublish(make(chan amqp.Confirmation, 1))
 
-	// Publish the message to the "chat.direct" exchange with the routing key equal to the recipient user ID.
 	err = m.ch.Publish(
 		ChatExchangeName,
-		msg.To,
+		InboxRoutingKey(msg.To),
 		true,
 		false,
 		amqp.Publishing{
