@@ -13,7 +13,7 @@ type Node struct {
 
 type SinglyLinkedList struct {
 	Head *Node
-	num  int
+	size  int
 }
 
 func NewSinglyLinkedList() *SinglyLinkedList {
@@ -41,7 +41,7 @@ func (l *SinglyLinkedList) InsertAtHead(data Data) {
 		l.Head = newNode
 	}
 
-	l.num++
+	l.size++
 }
 
 func (l *SinglyLinkedList) InsertAtTail(data Data) {
@@ -61,7 +61,7 @@ func (l *SinglyLinkedList) InsertAtTail(data Data) {
 		cur.next = newNode
 	}
 
-	l.num++
+	l.size++
 }
 
 func (l *SinglyLinkedList) InsertAtPosition(data Data, position int) {
@@ -69,7 +69,7 @@ func (l *SinglyLinkedList) InsertAtPosition(data Data, position int) {
 		panic("SinglyLinkedList pointer is null")
 	}
 
-	if position < 0 || position > l.num {
+	if position < 0 || position > l.size {
 		panic("position invalid")
 	}
 
@@ -89,7 +89,7 @@ func (l *SinglyLinkedList) InsertAtPosition(data Data, position int) {
 		prev.next = newNode
 	}
 
-	l.num++
+	l.size++
 }
 
 func (l *SinglyLinkedList) Delete(data Data) {
@@ -103,13 +103,13 @@ func (l *SinglyLinkedList) Delete(data Data) {
 
 	if l.Head.data == data {
 		l.Head = l.Head.next
-		l.num--
+		l.size--
 	} else {
 		prev := l.Head
 		for prev.next != nil {
 			if prev.next.data == data {
 				prev.next = prev.next.next
-				l.num--
+				l.size--
 				return
 			}
 			prev = prev.next
@@ -141,7 +141,7 @@ func (l* SinglyLinkedList) Search(data Data) bool {
 }
 
 func (l *SinglyLinkedList) Size() int {
-	return l.num
+	return l.size
 }
 
 
