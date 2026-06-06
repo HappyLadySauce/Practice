@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 	"strings"
-	"test/stream/tools"
+	"test/tools"
 
 	"github.com/sashabaranov/go-openai"
 )
